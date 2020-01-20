@@ -11,7 +11,7 @@ from json import loads
 from copy import copy
 import requests
 from blspy import PrivateKey, PublicKey, Signature, AggregationInfo
-from ellipticcurve.utils.integer import RandomInteger
+from random import SystemRandom
 from bls import BLS
 from transaction import Transaction
 from block import Block
@@ -48,7 +48,7 @@ class Blockchain(threading.Thread):
         self.roundNumber = 0
         seed = []
         for i in range(0, 32):
-            seed.append(RandomInteger.between(0, 254))
+            seed.append(SystemRandom().randrange(0, 254))
         seed = bytes(seed)
         self.private_key = PrivateKey.from_seed(seed)
 

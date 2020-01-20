@@ -1,6 +1,5 @@
 from blspy import PrivateKey, Signature, AggregationInfo, PublicKey
-from ellipticcurve.utils.integer import RandomInteger
-# from copy import copy
+from random import SystemRandom
 
 
 class BLS:
@@ -9,7 +8,7 @@ class BLS:
     def createKey():
         seed = []
         for i in range(0, 32):
-            seed.append(RandomInteger.between(0, 254))
+            seed.append(SystemRandom().randrange(0, 254))
         seed = bytes(seed)
         private_key = PrivateKey.from_seed(seed)
         return private_key

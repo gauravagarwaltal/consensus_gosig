@@ -175,15 +175,3 @@ if __name__ == '__main__':
     blockchain_thread.start()
     read_config(blockchain)
     app.run(host='0.0.0.0', port=port)
-
-
-
-
-
-
-
-
-
-def another_method():
-   # using logger defined above also works here
-   logger.info('Inside method')
